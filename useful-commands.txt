@@ -1,0 +1,14 @@
+# Copy the files to nixos to alter config
+sudo cp ~/source/repos/nix-setup/* /etc/nixos
+
+# Build a new Nix version
+sudo nixos-rebuild switch
+
+# Setup WiFi
+sudo nmcli dev wifi connect ThaddHotspot password 'foobar'
+
+# Reset xterm settings
+xrdb -merge ~/.Xresources
+
+# Logout
+Mod + Shift + e

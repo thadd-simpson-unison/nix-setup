@@ -1,9 +1,7 @@
 # Nix Setup
-
 # Useful Commands
 # sudo nano /etc/nixos/configuration.nix
 # sudo nixos-rebuild switch
-
 # Imports
 { config, pkgs, ... }:
 {
@@ -12,24 +10,18 @@
       ./hardware-configuration.nix
       ./home.nix
     ];
-  
   # Customizations
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
-  programs.bash.enable = true;
-  
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; # Define your hostname.  
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Enable networking
   networking.networkmanager.enable = true;
-
   # Set your time zone.
   time.timeZone = "America/Chicago";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -43,13 +35,11 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ts = {
     isNormalUser = true;
@@ -57,10 +47,8 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome
@@ -73,7 +61,6 @@
     powershell
     nodejs_22
   ];
-
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
