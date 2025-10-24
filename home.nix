@@ -11,12 +11,14 @@ in
         # The state version is required and should stay at the version you
         # originally installed.
         home.stateVersion = "25.05";
+        
         # Dotfiles
         programs.git = {
             enable = true;
             userName = "thadd-simpson-unison";
             userEmail = "thadd.simpson@unison.com";
         };
+        
         xresources.properties = {
             "XTerm*faceName" = "DejaVu Sans Mono";
             "XTerm*background" = "#000000";
