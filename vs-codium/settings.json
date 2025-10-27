@@ -1,0 +1,43 @@
+{
+  "explorer.confirmDragAndDrop": false,
+  "git.enableSmartCommit": true,
+  "explorer.confirmDelete": false,
+  "svelte.enable-ts-plugin": true,
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-chrome": "chrome",
+    "pwa-node": "node"
+  },
+  "editor.formatOnSave": true,
+  "explorer.confirmPasteNative": false,
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.renderWhitespace": "none",
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.centerLayout": false,
+  "vim.useSystemClipboard": true,
+  "explorer.compactFolders": false,
+  "vim.startInInsertMode": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-v>": false,
+    "<C-x>": false,
+    "<C-a>": false,
+    "<C-y>": false,
+    "<C-p>": false,
+    "<C-tab>": false,
+    "<C-w>": false,
+    "<C-0>": false,
+    "<C-9>": false,
+    "<C-8>": false
+  },
+  "editor.lineNumbers": "relative",
+  "git.confirmSync": false,
+  "playwright.reuseBrowser": true
+}

@@ -12,3 +12,6 @@ xrdb -merge ~/.Xresources
 
 # Logout
 Mod + Shift + e
+
+# Get rid of old nix generations
+sudo nix-collect-garbage
