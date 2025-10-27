@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
       home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
-in
-{
+
+in {
     imports = [
         (import "${home-manager}/nixos")
     ];
     home-manager.useGlobalPkgs = true;
+
     home-manager.users.ts = {
         # The state version is required and should stay at the version you
         # originally installed.
@@ -25,5 +26,15 @@ in
             "XTerm*foreground" = "#8ABEB7";
             "XTerm*selectToClipboard" = true;
         };
+
+        xsession.windowManager.i3 = {
+            config = {
+                keybindings = lib.mkOptionDefault {
+                    "PrtScn" = "exec scrot -s ~/Screenshots/%Y-%m-%d-%T.png";
+                    "Mod4+Return" = "exec alacritty";
+                };
+            };
+        };
     };
 }
+

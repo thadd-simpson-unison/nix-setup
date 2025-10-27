@@ -1,7 +1,7 @@
 # Nix Setup
 
 # Imports
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -12,7 +12,8 @@
   # Customizations
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
-  
+  programs.i3lock.enable = true;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -60,14 +61,17 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     vscodium
-    arandr
+    arandr # Visual monitor setup
     git
     gh
     dbeaver-bin
     slack
     powershell
     nodejs_22
-    pam_u2f
+    pam_u2f # Yubikey setup
+    neofetch # OS Snapshot
+    scrot # print screen
+    alacritty # better terminal
   ];
   
   # Before changing this value read the documentation for this option
