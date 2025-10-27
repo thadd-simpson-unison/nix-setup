@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 let
       home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
 
@@ -25,15 +25,6 @@ in {
             "XTerm*background" = "#000000";
             "XTerm*foreground" = "#8ABEB7";
             "XTerm*selectToClipboard" = true;
-        };
-
-        xsession.windowManager.i3 = {
-            config = {
-                keybindings = lib.mkOptionDefault {
-                    "PrtScn" = "exec scrot -s ~/Screenshots/%Y-%m-%d-%T.png";
-                    "Mod4+Return" = "exec alacritty";
-                };
-            };
         };
     };
 }

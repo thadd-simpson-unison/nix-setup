@@ -10,8 +10,13 @@
     ];
   
   # Customizations
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver = {
+    enable = true;
+    windowManager.i3 = {
+      enable = true;
+      configFile = ./i3-config;
+    };
+  };
   programs.i3lock.enable = true;
 
   # Bootloader
@@ -61,7 +66,7 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     vscodium
-    arandr # Visual monitor setup
+    arandr # Monitor setup
     git
     gh
     dbeaver-bin
@@ -70,8 +75,9 @@
     nodejs_22
     pam_u2f # Yubikey setup
     neofetch # OS Snapshot
-    scrot # print screen
-    alacritty # better terminal
+    scrot # Screenshots
+    alacritty # Better Terminal
+    feh # Image-Viewer
   ];
   
   # Before changing this value read the documentation for this option
