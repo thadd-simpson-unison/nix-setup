@@ -16,6 +16,9 @@
       enable = true;
       configFile = ./i3-config;
     };
+    # Pluggable dual monitors
+    videoDrivers = [ "displaylink" "modesetting" ];
+    displayManager.sessionCommands = '' ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0 '';
   };
   programs.i3lock.enable = true;
 
@@ -77,7 +80,10 @@
     neofetch # OS Snapshot
     scrot # Screenshots
     alacritty # Better Terminal
+    gedit # text editor
     feh # Image-Viewer
+    displaylink # Pluggable DisplayLink (Synaptics) Dock driver
+    linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
   ];
   
   # Before changing this value read the documentation for this option
