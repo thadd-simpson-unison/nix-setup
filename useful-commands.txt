@@ -1,5 +1,5 @@
 # Copy the files to nixos to alter config
-sudo cp ~/source/repos/nix-setup/* /etc/nixos
+sudo cp -r ~/source/repos/nix-setup/* /etc/nixos
 
 # Build a new Nix version
 sudo nixos-rebuild switch
@@ -14,8 +14,15 @@ xrdb -merge ~/.Xresources
 Mod + Shift + e
 
 # Get rid of old nix generations
-sudo nix-collect-garbage
+sudo nix-collect-garbage -d
 
 # Fix Pluggable DisplayLink (Synaptics) Drivers
 nix-prefetch-url --name displaylink-610.zip https://www.synaptics.com/sites/default/files/exe_files/2024-10/DisplayLink%20USB%20Graphics%20Software%20for%20Ubuntu6.1-EXE.zip
 nix-shell -p displaylink --arg config '{ allowUnfree = true; }'
+
+# Make a symlink for Playwright
+sudo ln -s /nix/store/0v7k9whppn2ks84dldz8a8jzfz2zrbf4-system-path/bin/google-chrome-stable /opt/google/chrome
+sudo mv /opt/google/chrome/google-chrome-stable ./chrome
+
+# Use curl to get external ip
+curl https://ipinfo.io/ip
