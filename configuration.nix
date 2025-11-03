@@ -21,6 +21,12 @@
     displayManager.sessionCommands = '' ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0 '';
   };
   programs.i3lock.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -84,6 +90,7 @@
     feh # Image-Viewer
     displaylink # Pluggable DisplayLink (Synaptics) Dock driver
     linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
+    obs-studio
   ];
   
   # Before changing this value read the documentation for this option
