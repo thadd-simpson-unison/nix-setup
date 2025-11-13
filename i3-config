@@ -44,7 +44,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # lock with i3lock
-bindsym $mod+b exec i3lock
+bindsym $mod+b exec i3lock --color=335066
 
 # start a terminal
 bindsym $mod+Return exec alacritty
