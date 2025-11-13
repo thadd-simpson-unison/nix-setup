@@ -91,6 +91,8 @@
     displaylink # Pluggable DisplayLink (Synaptics) Dock driver
     linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
     obs-studio
+    pkgs.go
+    pkgs.delve # go debugger
   ];
   
   # Before changing this value read the documentation for this option
