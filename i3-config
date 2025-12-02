@@ -50,7 +50,7 @@ bindsym $mod+b exec i3lock --color=151515
 bindsym $mod+Return exec alacritty
 
 # start screenshot
-bindsym Print exec scrot -s ~/Downloads/%Y-%m-%d-%T-screenshot.png;
+bindsym Print exec scrot -s ~/Downloads/screenshots/%Y-%m-%d-%T-screenshot.png;
 
 # kill focused window
 bindsym $mod+Shift+q kill
