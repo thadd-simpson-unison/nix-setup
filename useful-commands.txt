@@ -10,6 +10,9 @@ sudo nmcli dev wifi connect ThaddHotspot password 'foobar'
 # Reset xterm settings
 xrdb -merge ~/.Xresources
 
+# Restart i3
+$mod+Shift+r
+
 # Logout
 Mod + Shift + e
 
