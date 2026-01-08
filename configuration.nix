@@ -21,11 +21,13 @@
     displayManager.sessionCommands = '' ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0 '';
   };
   programs.i3lock.enable = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    socketActivation = true;
   };
 
   # Bootloader
@@ -93,6 +95,7 @@
     obs-studio
     pkgs.go
     pkgs.delve # go debugger
+    unzip
   ];
   
   # Before changing this value read the documentation for this option
