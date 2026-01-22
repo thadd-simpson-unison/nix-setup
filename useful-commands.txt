@@ -29,3 +29,15 @@ sudo mv /opt/google/chrome/google-chrome-stable ./chrome
 
 # Use curl to get external ip
 curl https://ipinfo.io/ip
+
+# Fix monitors
+exec ~/.screenlayout/default.sh
+exec ~/.screenlayout/home.sh
+exec ~/.screenlayout/work.sh
+
+# Setup a file for npm install -g to work and add the path:
+npm config set prefix '~/.npm-packages'
+echo 'export PATH="~/.npm-packages/bin:$PATH"' >> ~/.bashrc
+
+# Make a script executeable
+chmod +x "~/load-work.sh"

@@ -29,6 +29,7 @@
     pulse.enable = true;
     socketActivation = true;
   };
+  programs.openvpn3.enable = true;
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -94,8 +95,10 @@
     linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
     obs-studio
     pkgs.go
-    pkgs.delve # go debugger
+    pkgs.delve # Go debugger
     unzip
+    pkgs.openvpn3 # Open VPN Client
+    pkgs.ollama # local llm
   ];
   
   # Before changing this value read the documentation for this option
