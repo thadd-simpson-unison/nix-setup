@@ -31,6 +31,9 @@
   };
   programs.openvpn3.enable = true;
 
+  # Usb
+  services.udisks2.enable = true;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -98,7 +101,7 @@
     pkgs.delve # Go debugger
     unzip
     pkgs.openvpn3 # Open VPN Client
-    pkgs.ollama # local llm
+    udiskie
   ];
   
   # Before changing this value read the documentation for this option
