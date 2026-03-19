@@ -98,6 +98,7 @@
     linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
     obs-studio
     pkgs.go
+    pkgs.gccgo
     pkgs.delve # Go debugger
     unzip
     pkgs.openvpn3 # Open VPN Client

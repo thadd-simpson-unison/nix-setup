@@ -7,6 +7,9 @@ sudo nixos-rebuild switch
 # Setup WiFi
 sudo nmcli dev wifi connect ThaddHotspot password 'foobar'
 
+# Fix WiFi
+sudo systemctl restart NetworkManager
+
 # Reset xterm settings
 xrdb -merge ~/.Xresources
 
