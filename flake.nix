@@ -9,7 +9,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    himmelblau.url = "github:himmelblau-idm/himmelblau/v3.1.1";
+    himmelblau.url = "github:himmelblau-idm/himmelblau/3.1.1";
   };
 
   outputs = { self, nixpkgs, home-manager, himmelblau, ... }@inputs: {
