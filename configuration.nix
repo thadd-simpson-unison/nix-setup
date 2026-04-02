@@ -98,7 +98,7 @@
     powershell
     nodejs_22
     pam_u2f # Yubikey setup
-    neofetch # OS Snapshot
+    fastfetch # OS Snapshot
     scrot # Screenshots
     alacritty # Better Terminal
     gedit # text editor
@@ -118,11 +118,10 @@
   services.himmelblau = {
     enable = true;
     settings = {
-      domain = "unison.com";
-      # This allows certain groups to log in via SSO
+      domain = [ "unison.com" ]; 
+      
       pam_allow_groups = [ "d94b1842-7ec6-4d11-a723-a0d9564d01f" ];
-      # Grants the user 'sudo' rights locally once they log in
-      local_groups = "wheel";
+      local_groups = [ "wheel" ];
     };
   };
 
