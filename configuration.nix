@@ -34,6 +34,10 @@
   # Usb
   services.udisks2.enable = true;
 
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -80,6 +84,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     google-chrome
+    chromium
     vscodium
     arandr # Monitor setup
     git
