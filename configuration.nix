@@ -1,13 +1,13 @@
 # Nix Setup
 
 # Imports
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./home.nix
-    ];
+    ./hardware-configuration.nix
+    ./home.nix
+  ];
   
   # Customizations
   services.xserver = {
@@ -38,11 +38,15 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # Unison sec
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  services.dbus.enable = true;
+  services.pcscd.enable = true; # Required for smart cards/token auth if used
+
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; # Define your hostname.  
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
   # Enable networking
   networking.networkmanager.enable = true;
@@ -110,6 +114,18 @@
     udiskie
   ];
   
+  # Unison Sec
+  services.himmelblau = {
+    enable = true;
+    settings = {
+      domain = "unison.com";
+      # This allows certain groups to log in via SSO
+      pam_allow_groups = [ "d94b1842-7ec6-4d11-a723-a0d9564d01f" ];
+      # Grants the user 'sudo' rights locally once they log in
+      local_groups = "wheel";
+    };
+  };
+
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
