@@ -1,19 +1,15 @@
 { config, pkgs, ... }:
-let
-      home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
 
-in {
-    imports = [
-        (import "${home-manager}/nixos")
-    ];
+{
+    # No more 'let' or 'imports' needed here!
+    # The flake handles the import of the home-manager module.
+
     home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true; # Highly recommended for flakes
 
     home-manager.users.ts = {
-        # The state version is required and should stay at the version you
-        # originally installed.
         home.stateVersion = "25.05";
         
-        # Dotfiles
         programs.git = {
             enable = true;
             userName = "thadd-simpson-unison";
@@ -28,4 +24,3 @@ in {
         };
     };
 }
-
