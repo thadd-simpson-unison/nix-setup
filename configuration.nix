@@ -112,16 +112,19 @@
     unzip
     pkgs.openvpn3 # Open VPN Client
     udiskie
+    inputs.himmelblau.packages.${pkgs.system}.himmelblau # Unison sec
   ];
   
   # Unison Sec
   services.himmelblau = {
     enable = true;
     settings = {
-      domain = [ "unison.com" ]; 
+      domain = [ "unison.com" ];
+      app_id = "31046e27-7fcb-4f73-8863-06c3eb05e4d3"; 
       
       pam_allow_groups = [ "d94b1842-7ec6-4d11-a723-a0d9564d01f" ];
       local_groups = [ "wheel" ];
+      apply_policy = true;
     };
   };
 

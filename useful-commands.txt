@@ -23,7 +23,9 @@ Mod + Shift + e
 sudo nix-collect-garbage -d
 
 # For Flakes using pluggable displaylink
-# Download it to git repo first and rename it, then:
+# Download it to git repo first and rename it:
+# https://www.synaptics.com/products/displaylink-usb-graphics-software-ubuntu-62
+# then:
 nix-prefetch-url --name displaylink-620.zip file://$PWD/displaylink-620.zip
 
 # Fix Pluggable DisplayLink (Synaptics) Drivers
