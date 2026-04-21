@@ -94,7 +94,7 @@
     powershell
     nodejs_22
     pam_u2f # Yubikey setup
-    neofetch # OS Snapshot
+    fastfetch # OS Snapshot
     scrot # Screenshots
     alacritty # Better Terminal
     gedit # text editor
