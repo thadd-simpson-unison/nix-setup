@@ -44,3 +44,5 @@ echo 'export PATH="~/.npm-packages/bin:$PATH"' >> ~/.bashrc
 
 # Make a script executeable
 chmod +x "~/load-work.sh"
+
+# Can't open chrome? Try deleting .config/chromium & google-chrome

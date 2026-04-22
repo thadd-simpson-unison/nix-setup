@@ -31,6 +31,27 @@
   };
   programs.openvpn3.enable = true;
 
+  # Unison sec
+  programs.nix-ld.enable = true;
+systemd.services.ninja-agent = {
+  description = "NinjaOne RMM Agent";
+  after = [ "network.target" ];
+  wantedBy = [ "multi-user.target" ];
+  serviceConfig = {
+    Type = "simple";
+    # We run the agent, then run 'tail -f /dev/null' to keep the sandbox open
+    ExecStart = "${pkgs.steam-run}/bin/steam-run bash -c '/opt/NinjaRMMAgent/programfiles/ninjarmm-linagent && tail -f /dev/null'";
+    
+    # This ensures that even if the agent forks, systemd doesn't kill the children
+    KillMode = "process";
+    
+    Restart = "always";
+    RestartSec = 20;
+    User = "root";
+    WorkingDirectory = "/opt/NinjaRMMAgent/programfiles";
+  };
+};
+
   # Usb
   services.udisks2.enable = true;
 
