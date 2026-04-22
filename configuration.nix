@@ -42,7 +42,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos"; # Define your hostname.  
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
   # Enable networking
   networking.networkmanager.enable = true;
@@ -99,15 +98,16 @@
     alacritty # Better Terminal
     gedit # text editor
     feh # Image-Viewer
+    #displaylink download: https://www.synaptics.com/products/displaylink-usb-graphics-software-ubuntu-61
     displaylink # Pluggable DisplayLink (Synaptics) Dock driver
-    linuxKernel.packages.linux_xanmod_stable.evdi # Dock driver
     obs-studio
     pkgs.go
-    pkgs.gccgo
+    #pkgs.gccgo
     pkgs.delve # Go debugger
     unzip
     pkgs.openvpn3 # Open VPN Client
     udiskie
+    pkgs.steam-run
   ];
   
   # Before changing this value read the documentation for this option
